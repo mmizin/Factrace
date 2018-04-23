@@ -58,7 +58,7 @@ static int		f_is_file(int *fd, t_hot **f_race)
 	c = 0;
 	(*f_race) = (t_hot *)malloc(sizeof(t_hot));
 	tmp = *(f_race);
-	while ((get_next_line(*fd, &line)) != 0)
+	while ((get_next_line(*fd, &line)) == 1)
 	{
 		(*f_race)->str = ft_strnew(1);
 		if (!*line)
@@ -83,7 +83,7 @@ int				main(int argc, char *argv[])
 	int		fd;
 	t_hot	*f_race;
 
-	if ((fd = open(argv[1], O_RDONLY)) == 0)
+	if ((fd = open(argv[1], O_RDONLY)) < 0)
 		fd = 0;
 	if (fd > 0 && argc != 2)
 	{
