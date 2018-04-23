@@ -83,7 +83,7 @@ int				main(int argc, char *argv[])
 	int		fd;
 	t_hot	*f_race;
 
-	if ((fd = open(argv[1], O_RDONLY)) < 0)
+	if ((fd = open(argv[1], O_RDONLY)) == 0)
 		fd = 0;
 	if (fd > 0 && argc != 2)
 	{
